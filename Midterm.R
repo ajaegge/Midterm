@@ -33,5 +33,5 @@ MacroZoo$LONGdec = measurements::conv_unit(MacroZoo$LONG, from = 'deg_dec_min', 
 MacroZoo$LONGdec = paste("-", MacroZoo$LONGdec, sep="")
 
 #write macrozoo table
-write.table(MacroZoo, "MacroZoo", sep="\t", row.names=TRUE)
+write.table(MacroZoo, "MacroZoo.txt", sep="\t", row.names=TRUE)
 
