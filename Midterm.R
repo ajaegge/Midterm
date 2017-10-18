@@ -46,3 +46,6 @@ elninoyearegg <- subset(E, YYYY >= 1997 & YYYY <= 1998)
 elninoyearegg$DateEdit <- elninoyearegg$DateTime
 elninoyearegg$DateEdit = gsub('.{9}$', '', elninoyearegg$DateEdit)
 elninomonthegg <- subset(elninoyearegg, DateEdit >= "1997-07-01" & DateEdit <= "1998-06-22")
+
+#write egg table
+write.table(elninomonthegg, "Egg.txt", sep="\t", row.names=TRUE)
