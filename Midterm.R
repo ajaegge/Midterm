@@ -35,3 +35,14 @@ MacroZoo$LONGdec = paste("-", MacroZoo$LONGdec, sep="")
 #write macrozoo table
 write.table(MacroZoo, "MacroZoo.txt", sep="\t", row.names=TRUE)
 
+#edit egg date/time format
+E <- eggs
+E$DateTime <- eggs$time_UTC
+as.POSIXct(E$DateTime, "%m-%d-%Y %H:%M:%S")
+E$YYYY <- year(as.POSIXct(E$DateTime,"%m-%d-%Y %H:%M:%S" ))
+E$MM <- month((as.POSIXct(E$DateTime,"%m-%d-%Y %H:%M:%S" )))
+E$MM <- sprintf("%02d", E$MM)
+elninoyearegg <- subset(E, YYYY >= 1997 & YYYY <= 1998)
+elninoyearegg$DateEdit <- elninoyearegg$DateTime
+elninoyearegg$DateEdit = gsub('.{9}$', '', elninoyearegg$DateEdit)
+elninomonthegg <- subset(elninoyearegg, DateEdit >= "1997-07-01" & DateEdit <= "1998-06-22")
