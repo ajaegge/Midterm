@@ -50,7 +50,7 @@ elninomonthegg <- subset(elninoyearegg, DateEdit >= "1997-07-01" & DateEdit <= "
 #edit egg anch & sard
 elninomonthegg$Sard <- as.numeric(elninomonthegg$sardine_eggs_count)
 elninomonthegg$Anch <- as.numeric(elninomonthegg$anchovy_eggs_count)
-elninomonthegg$SardAnch <- elninomonthegg$Sard + elninomonthegg$Anch
+elninomonthegg$SardAnch <- (elninomonthegg$Sard + elninomonthegg$Anch)/2
 
 #write egg table
 write.table(elninomonthegg, "Egg.txt", sep="\t", row.names=TRUE)
