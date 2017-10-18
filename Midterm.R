@@ -31,3 +31,7 @@ MacroZoo$LATdec = measurements::conv_unit(MacroZoo$LAT, from = 'deg_dec_min', to
 MacroZoo$LONG <- str_c(MacroZoo$lon_deg, " ", MacroZoo$lon_min)
 MacroZoo$LONGdec = measurements::conv_unit(MacroZoo$LONG, from = 'deg_dec_min', to = 'dec_deg')
 MacroZoo$LONGdec = paste("-", MacroZoo$LONGdec, sep="")
+
+#write macrozoo table
+write.table(MacroZoo, "MacroZoo", sep="\t", row.names=TRUE)
+
